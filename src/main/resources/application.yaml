@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://activiti-postgres:5432/activiti_poc
+    username: postgres
+    password: 123
+  jpa:
+    generate-ddl: false
