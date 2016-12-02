@@ -31,6 +31,7 @@ services:
       - activiti-srv
     volumes:
       - ./etc/app/:/etc/app/
+      - ./data/logs/:/tmp/logs/
     expose:
       - 8080
     ports:
@@ -46,6 +47,7 @@ services:
       - activiti-postgres
     volumes:
       - ./etc/srv/:/etc/srv/
+      - ./data/logs/:/tmp/logs/
     expose:
       - 8081
     ports:

@@ -1,2 +1,10 @@
 server:
   port: 8081
+
+logging:
+  file: /tmp/logs/activiti_srv.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ru.thprom: TRACE

@@ -8,3 +8,11 @@ spring:
 
 rest:
   url: http://activiti-srv:8081/math/{val}
+
+logging:
+  file: /tmp/logs/activiti_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ru.thprom: TRACE
