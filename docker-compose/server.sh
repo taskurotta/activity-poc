@@ -80,7 +80,11 @@ do_stop()
 
 do_build()
 {
-    build/activiti.app/build.sh
+    echo "Building image: dhr.thprom.ru:5000/activiti.app:$MVN_PROJECT_VERSION"
+    docker build -t "dhr.thprom.ru:5000/activiti.app:$MVN_PROJECT_VERSION" "$DIR/build/activiti.app/"
+
+    echo "Building image: dhr.thprom.ru:5000/activiti.srv:$MVN_PROJECT_VERSION"
+    docker build -t "dhr.thprom.ru:5000/activiti.srv:$MVN_PROJECT_VERSION" "$DIR/build/activiti.srv/"
 }
 
 do_push()
@@ -89,6 +93,9 @@ do_push()
 
     echo "Push image: dhr.thprom.ru:5000/activiti.app:$MVN_PROJECT_VERSION"
     docker push "dhr.thprom.ru:5000/activiti.app:$MVN_PROJECT_VERSION"
+
+    echo "Push image: dhr.thprom.ru:5000/activiti.srv:$MVN_PROJECT_VERSION"
+    docker push "dhr.thprom.ru:5000/activiti.srv:$MVN_PROJECT_VERSION"
 
 }
 

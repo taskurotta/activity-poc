@@ -5,3 +5,6 @@ spring:
     password: 123
   jpa:
     generate-ddl: false
+
+rest:
+  url: http://activiti-srv:8081/math/{val}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="definitions"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/bpmn2.0">
+
+    <process id="asyncProcess">
+
+        <startEvent id="theStart"/>
+
+        <serviceTask id="restCall" activiti:async="true" activiti:expression="${restCaller.call()}"/>
+
+        <sequenceFlow id="flow1" sourceRef="theStart" targetRef="restCall"/>
+
+        <sequenceFlow id="flow2" sourceRef="restCall" targetRef="theEnd"/>
+
+        <endEvent id="theEnd"/>
+
+    </process>
+
+</definitions>

@@ -28,12 +28,28 @@ services:
     image: "dhr.thprom.ru:5000/activiti.app:${MVN_PROJECT_VERSION}"
     links:
       - activiti-postgres
+      - activiti-srv
     volumes:
       - ./etc/app/:/etc/app/
     expose:
       - 8080
     ports:
       - "8080:8080"
+
+  activiti-srv:
+    container_name: activiti-srv
+    hostname: activiti-srv
+    networks:
+      - activiti
+    image: "dhr.thprom.ru:5000/activiti.srv:${MVN_PROJECT_VERSION}"
+    links:
+      - activiti-postgres
+    volumes:
+      - ./etc/srv/:/etc/srv/
+    expose:
+      - 8081
+    ports:
+      - "8081:8081"
 
 networks:
   activiti:

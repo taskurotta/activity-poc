@@ -8,9 +8,9 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-EXPOSE 8080
+EXPOSE 8081
 
-CMD ["java", "-jar", "/opt/app/activiti-app.jar"]
+CMD ["java", "-jar", "/opt/app/activiti-srv.jar"]
 
-COPY activiti-app.jar /opt/app/activiti-app.jar
+COPY activiti-srv.jar /opt/app/activiti-srv.jar
 
