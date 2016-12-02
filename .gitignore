@@ -1,6 +1,6 @@
 target/
 .idea/
-spring-boot-example.iml
+**.iml
 /.settings/
 /bin/
 /.classpath
