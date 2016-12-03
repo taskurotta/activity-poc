@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions id="definitions"
-             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
-             xmlns:activiti="http://activiti.org/bpmn"
-             typeLanguage="http://www.w3.org/2001/XMLSchema"
-             expressionLanguage="http://www.w3.org/1999/XPath"
-             targetNamespace="http://www.activiti.org/bpmn2.0">
-
-    <process id="asyncProcess">
-
-        <startEvent id="theStart"/>
-
-        <serviceTask id="restCall" activiti:async="true" activiti:expression="${restCaller.call()}"/>
-
-        <sequenceFlow id="flow1" sourceRef="theStart" targetRef="restCall"/>
-
-        <sequenceFlow id="flow2" sourceRef="restCall" targetRef="theEnd"/>
-
-        <endEvent id="theEnd"/>
-
-    </process>
-
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/asyncProcess">
+	<process id="asyncProcess" name="Async Process" isExecutable="true">
+		<startEvent id="theStart" name="Start"></startEvent>
+		<endEvent id="theEnd" name="End"></endEvent>
+		<sequenceFlow id="flow1" sourceRef="theStart" targetRef="restCall"></sequenceFlow>
+		<serviceTask id="restCall" name="REST Service" activiti:async="true" activiti:exclusive="false" activiti:expression="${restCaller.call()}"></serviceTask>
+		<sequenceFlow id="flow2" sourceRef="restCall" targetRef="theEnd"></sequenceFlow>
+	</process>
+	<bpmndi:BPMNDiagram id="BPMNDiagram_asyncProcess">
+		<bpmndi:BPMNPlane bpmnElement="asyncProcess" id="BPMNPlane_asyncProcess">
+			<bpmndi:BPMNShape bpmnElement="theStart" id="BPMNShape_theStart">
+				<omgdc:Bounds height="35.0" width="35.0" x="150.0" y="220.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="theEnd" id="BPMNShape_theEnd">
+				<omgdc:Bounds height="35.0" width="35.0" x="530.0" y="220.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="restCall" id="BPMNShape_restCall">
+				<omgdc:Bounds height="55.0" width="105.0" x="300.0" y="210.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+				<omgdi:waypoint x="185.0" y="237.0"></omgdi:waypoint>
+				<omgdi:waypoint x="300.0" y="237.0"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+				<omgdi:waypoint x="405.0" y="237.0"></omgdi:waypoint>
+				<omgdi:waypoint x="530.0" y="237.0"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
 </definitions>

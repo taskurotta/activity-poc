@@ -53,6 +53,22 @@ services:
     ports:
       - "8081:8081"
 
+  activiti-web:
+    container_name: activiti-web
+    hostname: activiti-web
+    networks:
+      - activiti
+    image: "tomcat:9.0"
+    links:
+      - activiti-postgres
+    volumes:
+      - ./data/web/activiti-explorer/:/usr/local/tomcat/webapps/activiti-explorer
+      - ./data/logs/:/usr/local/tomcat/logs/
+    expose:
+      - 8080
+    ports:
+      - "8090:8080"
+
 networks:
   activiti:
     # Use the overlay driver for multi-host communication

@@ -51,7 +51,13 @@
 			<version>${activiti.version}</version>
 		</dependency>
 
-
+		<!-- https://mvnrepository.com/artifact/org.activiti/activiti-webapp-explorer2
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-webapp-explorer2</artifactId>
+			<version>5.22.0</version>
+		</dependency>
+                                                                                       -->
 		<!-- Testing -->
 
 		<dependency>
