@@ -31,7 +31,7 @@ services:
       - activiti-srv
     volumes:
       - ./etc/app/:/etc/app/
-      - ./data/logs/:/tmp/logs/
+      - ./data/app/:/tmp/logs/
     expose:
       - 8080
     ports:
@@ -47,23 +47,23 @@ services:
       - activiti-postgres
     volumes:
       - ./etc/srv/:/etc/srv/
-      - ./data/logs/:/tmp/logs/
+      - ./data/srv/:/tmp/logs/
     expose:
       - 8081
     ports:
       - "8081:8081"
 
-  activiti-web:
-    container_name: activiti-web
-    hostname: activiti-web
+  activiti-explorer:
+    container_name: activiti-explorer
+    hostname: activiti-explorer
     networks:
       - activiti
-    image: "tomcat:9.0"
+    image: "dhr.thprom.ru:5000/activiti-explorer:5.22.0"
     links:
       - activiti-postgres
     volumes:
-      - ./data/web/activiti-explorer/:/usr/local/tomcat/webapps/activiti-explorer
-      - ./data/logs/:/usr/local/tomcat/logs/
+      - ./activiti-explorer/:/usr/local/tomcat/webapps/activiti-explorer
+      - ./data/explorer/:/opt/tomcat/logs/
     expose:
       - 8080
     ports:

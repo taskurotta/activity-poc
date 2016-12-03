@@ -85,6 +85,9 @@ do_build()
 
     echo "Building image: dhr.thprom.ru:5000/activiti.srv:$MVN_PROJECT_VERSION"
     docker build -t "dhr.thprom.ru:5000/activiti.srv:$MVN_PROJECT_VERSION" "$DIR/build/activiti.srv/"
+
+    echo "Building image: dhr.thprom.ru:5000/activiti-explorer:5.22.0"
+    docker build -t "dhr.thprom.ru:5000/activiti-explorer:5.22.0" "$DIR/build/activiti-explorer"
 }
 
 do_push()
