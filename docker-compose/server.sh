@@ -25,7 +25,7 @@ ask() {
 
 do_clean_data()
 {
-    ask "This will remove all service data and table structures. Continue? (Y/N)"
+#    ask "This will remove all service data and table structures. Continue? (Y/N)"
     echo "Remove files from data/?/* directories (except jar file)..."
     for v in $(ls data/ | grep -v jar); do sudo rm -rf ./data/$v; done
     echo ">> done"

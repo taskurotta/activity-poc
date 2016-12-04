@@ -22,8 +22,10 @@ public class InitController {
     @GetMapping("/start")
     public String start() {
         ProcessInstance asyncProcess = this.processEngine.getRuntimeService().startProcessInstanceByKey("asyncProcess");
+
         String message = "Start process " + asyncProcess.getId();
         log.info(message);
+
         return message;
     }
 
